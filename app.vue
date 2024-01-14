@@ -22,7 +22,6 @@
     },  
     mounted () {
      
-      
     },
     methods:{
     }
@@ -66,12 +65,21 @@
   font-size: 2rem;
   margin: 5px;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 780px) {
   #canvas1 {
     background: url('./assets/background1080x1920.png');
     background-size: cover;
     background-position: center;
     transition: all 0.5s ease-in-out;
   }
+}
+@media screen and (max-width: 500px) {
+  #canvas1 {
+    background: url('./assets/background1920x1080.png');
+    background-size:cover;
+    background-position: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
 }
 </style>
