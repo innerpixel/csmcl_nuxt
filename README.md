@@ -13,4 +13,22 @@ I am no programmer
 .. so that AI, Has something to assist. ;)
 
 
+some of the things used. 
+nuxt nuxt ui tailwindcess tinycolor victor vueuse 
+inspired by and stole some techniques from Franks Laboratory, and others explaning particles systems and working with canvas 
+
+also really the NUXT team and all involve.. amazing i am mesmerized by your work.. _ LOVE _
+
+
+
+
+
+
+clone 
+cd dirname 
+npm install 
+npm run dev 
+
+
+
 
