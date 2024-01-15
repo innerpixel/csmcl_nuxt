@@ -65,7 +65,7 @@
   font-size: 2rem;
   margin: 5px;
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 900px) {
   #canvas1 {
     background: url('./assets/background1080x1920.png');
     background-size: cover;
