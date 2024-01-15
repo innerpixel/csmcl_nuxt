@@ -1,22 +1,19 @@
-// Purpose: Csmcl class
-// create users game 
-// handles user interactions within game
-// update csmcl.network with user and game data
-
-import user from '/csmcl/classes/user.js';
-
-export default class Csmcl {
-    constructor(canvas) {
+// game/classes/Player.js
+export default class Game {
+  // this is the User instance
+  // this = User instance
+    constructor(canvas, ctx ) {
       // this is the Csmcl instance
       this.canvas = canvas
+      this.ctx = ctx
+      
       this.width = canvas.width
       this.height = canvas.height
 
       // ... and methods
       window.addEventListener('resize', (e) => {
-        this.resize(e.target.innerWidth, e.target.innerHeight)
+        this.resize(e.target.innerWidth, window.target.innerHeight)
       })        
-
     }
     resize(width, height) {
       this.width = width
@@ -25,14 +22,21 @@ export default class Csmcl {
       this.canvas.height = height
             
     }
-    
-    update() {
-      // ... update logic
+    render()  {
+      // ... render logic
+
+    }
+
+    update(...args) {
+      
+      
     }
     render() {
       // ... render logic
-    } 
+    }
 
-
+  
     // ... additional methods
-  }
+  } // end class User
+
+  
