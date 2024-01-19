@@ -8,14 +8,14 @@
 
 <script>
   
-  import Csmcl from './csmcl/classes/csmlc.js'
+  import Csmcl from './csmcl/classes/csmlc.js' // csmcl.notwork in the future. 
   import Victor from 'victor'
 
   export default {
     name: 'Csmcl.space',
     data() {
       return {
-        particles: [],
+        particles: [], // cosmic travelers and other things like enemies, etc.
       };
     },
     mounted() {
@@ -38,15 +38,11 @@
         addEventListener('resize', () => {
           this.canvas.width = window.innerWidth;
           this.canvas.height = window.innerHeight;
+          
           this.csmclSpace.resize(this.canvas.width, this.canvas.height);
+          
         });
       },
-      handleMouseMovement() {
-        this.mousePosition = new Victor(this.mouse.x, this.mouse.y);
-       
-        return this.mousePosition;        
-      },
-
       createParticles() {
         for (let i = 0; i < 100; i++) {
           const position = new Victor(
@@ -65,40 +61,39 @@
         }
         return this.particles;
       },     
-      animateParticles() {
-        requestAnimationFrame(this.animateParticles);
-       
-
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-        for (const particle of this.particles) {
+      drawParticles(particles, ctx) {
+        ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        particles.forEach((particle) => {
           particle.position.add(particle.velocity);
           if (
-            particle.position.x + particle.radius > this.canvas.width ||
-            particle.position.x - particle.radius < 0
+            particle.position.x > this.canvas.width ||
+            particle.position.x < 0
           ) {
             particle.velocity.x *= -1;
           }
-
           if (
-            particle.position.y + particle.radius > this.canvas.height ||
-            particle.position.y - particle.radius < 0
+            particle.position.y > this.canvas.height ||
+            particle.position.y < 0
           ) {
             particle.velocity.y *= -1;
           }
-
-          this.ctx.beginPath();
-          this.ctx.arc(
+          ctx.beginPath();
+          ctx.fillStyle = particle.color;
+          ctx.arc(
             particle.position.x,
             particle.position.y,
             particle.radius,
             0,
             Math.PI * 2
           );
-          this.ctx.fillStyle = particle.color;
-          this.ctx.fill();
-          this.ctx.closePath();
-        }
+          ctx.fill();
+          ctx.closePath();
+        });
+      },
+      animateParticles() {
+        requestAnimationFrame(this.animateParticles);
+       
+        this.drawParticles(this.particles, this.ctx); 
       },
     },
   }

@@ -3,8 +3,6 @@
 // handles user interactions within game
 // update csmcl.network with user and game data
 
-import user from '/csmcl/classes/user.js';
-
 export default class Csmcl {
     constructor(canvas) {
       // this is the Csmcl instance
