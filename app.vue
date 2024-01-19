@@ -4,10 +4,10 @@
   <div>
     <NuxtPage />
   </div>
-</template>
+</template> 
 
 <script>
-  import { RouterView } from 'vue-router'
+  
   import Csmcl from './csmcl/classes/csmlc.js'
   import Victor from 'victor'
 
