@@ -1,7 +1,7 @@
 
 <template>
   <canvas id="canvas1" ref="canvas1"></canvas>
-  <div>
+  <div>   
     <NuxtPage />
   </div>
 </template> 
@@ -12,10 +12,15 @@
   import Victor from 'victor'
 
   export default {
+    setup() {
+      
+      return {  }
+    },
     name: 'Csmcl.space',
     data() {
       return {
         particles: [], // cosmic travelers and other things like enemies, etc.
+        
       };
     },
     mounted() {

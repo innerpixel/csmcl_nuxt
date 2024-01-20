@@ -1,4 +1,4 @@
-import victor from "victor"
+import victor from 'victor'
 
 export default class Robot {
 
@@ -9,11 +9,11 @@ export default class Robot {
         this.canvas = canvas
         this.ctx = ctx
         this.radius = 65
-
-        this.loc = new victor(this.canvas.width / 2 - this.radius, this.canvas.height / 2 - this.radius)
         this.angle = 0
+
+        this.mouse = new victor(useMouse().x , useMouse().y)
+        this.loc = new victor(this.canvas.width / 2 - this.radius, this.canvas.height / 2 - this.radius)
       
-      // this = 
       this.drawRobot()
     }
     drawRobot(canvas, ctx) {
@@ -49,7 +49,7 @@ export default class Robot {
     }
     updateRobot() {
       // ... update robot
-      
+     
       
     }
 

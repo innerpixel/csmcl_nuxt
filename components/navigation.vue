@@ -5,7 +5,8 @@
   </div>
   <canvas id="canvas2"></canvas>
   <!-- // display mouse info  -->
-  <div class="mouseinfo"></div>
+  <div class="mouseinfo2"></div>
+  
 </template> 
 
 <script>
@@ -21,8 +22,18 @@
       };
     },
     mounted() {
-     
-     this.init()
+      this.init()
+      this.mouseinfo2 = document.querySelector('.mouseinfo2');
+      this.mouse = new victor(0, 0);
+      
+      window.addEventListener('mousemove', (e)=> {
+        this.mouse = new victor(e.clientX, e.clientY);
+        this.dx = this.mouse.x - this.robot.loc.x;
+        this.dy = this.mouse.y - this.robot.loc.y;
+        this.robot.angle = Math.atan2(this.dy, this.dx);
+        this.robot.updateRobot();
+      });
+      
 
     },
 
@@ -30,12 +41,15 @@
       init() {
         this.canvas = document.getElementById('canvas2'); 
         this.ctx = this.canvas.getContext('2d');
+
         this.robot = new Robot(this.canvas, this.ctx);
-        console.log(this.canvas, this.ctx, this.robot);
+      
         this.robot.drawRobot(this.canvas, this.ctx);
         this.robot.updateRobot();      
       },
       animateRobot() {
+        this.dx = this.mouse.x - this.robot.loc.x;
+        this.dy = this.mouse.y - this.robot.loc.y;
         this.robot.updateRobot();
         requestAnimationFrame(this.animateRobot);
       },  

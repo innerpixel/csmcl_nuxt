@@ -10,18 +10,24 @@
 
 <script>
   import Navigation from '~/components/navigation.vue'
+  import victor from 'victor'
   
+
+
   export default {
     components: {
       Navigation
+    },
+    setup() {
+     
     },
     mounted() {
       this.mouseinfo = document.querySelector('.mouseinfo');
       
       window.addEventListener('mousemove', (e)=> {
-        this.mouse = new victor(e.clientX, e.clientY ); 
+        this.mouse = new victor(e.clientX, e.clientY);
         this.mouseinfo.innerHTML = `mouse x: ${this.mouse.x} mouse y: ${this.mouse.y}`;
-
+      
       // this is the mouse position in the canvas 
     });
       
